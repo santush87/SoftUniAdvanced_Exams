@@ -1,7 +1,6 @@
 package Date_13April2022.Blacksmith;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,11 +23,11 @@ public class Main {
         ArrayDeque<Integer> steel = new ArrayDeque<>();
         ArrayDeque<Integer> carbon = new ArrayDeque<>();
 
-        for (int i = 0; i < stringSteel.size(); i++) {
-            steel.offer(Integer.parseInt(stringSteel.get(i)));
+        for (String value : stringSteel) {
+            steel.offer(Integer.parseInt(value));
         }
-        for (int i = 0; i < stringCarbon.size(); i++) {
-            carbon.push(Integer.parseInt(stringCarbon.get(i)));
+        for (String value : stringCarbon) {
+            carbon.push(Integer.parseInt(value));
         }
         int swordCount = 0;
 
@@ -55,10 +54,11 @@ public class Main {
             }
         }
 
+        // HERE IS THE CASE WHERE THERE AREN'T SWORDS
         if (swordCount == 0) {
             System.out.println("You did not have enough resources to forge a sword.");
 
-            if (steel.isEmpty()){
+            if (steel.isEmpty()) {
                 System.out.println("Steel left: none");
             } else {
                 System.out.print("Steel left: ");
@@ -71,7 +71,7 @@ public class Main {
                 System.out.println();
             }
 
-            if (carbon.isEmpty()){
+            if (carbon.isEmpty()) {
                 System.out.print("Carbon left: none");
             } else {
                 System.out.print("Carbon left: ");
@@ -82,9 +82,11 @@ public class Main {
                     }
                 }
             }
+
+            // HERE IS THE CASE WHERE THERE ARE SWORDS
         } else {
             System.out.printf("You have forged %d swords.%n", swordCount);
-            if (steel.isEmpty()){
+            if (steel.isEmpty()) {
                 System.out.println("Steel left: none");
             } else {
                 while (!steel.isEmpty()) {
@@ -96,11 +98,15 @@ public class Main {
                 System.out.println();
             }
 
-            System.out.print("Carbon left: ");
-            while (!carbon.isEmpty()) {
-                System.out.print(carbon.poll());
-                if (carbon.size() >= 1) {
-                    System.out.print(", ");
+            if (carbon.isEmpty()) {
+                System.out.print("Carbon left: none");
+            } else {
+                System.out.print("Carbon left: ");
+                while (!carbon.isEmpty()) {
+                    System.out.print(carbon.poll());
+                    if (carbon.size() >= 1) {
+                        System.out.print(", ");
+                    }
                 }
             }
             System.out.println();
