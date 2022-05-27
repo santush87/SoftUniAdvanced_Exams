@@ -51,7 +51,7 @@ public class ThroneConquering_02 {
             energy--;
 
             if (parisRow < 0 || parisRow > matrix.length - 1 ||
-                    parisCol < 0 || parisCol > matrix[0].length) {
+                    parisCol < 0 || parisCol > matrix[0].length - 1) {
                 parisRow = prevRow;
                 parisCol = prevCol;
             } else {
@@ -78,7 +78,7 @@ public class ThroneConquering_02 {
                         System.out.printf("Paris died at %d;%d.%n", parisRow, parisCol);
                         print(matrix);
                         endGame = true;
-                    }else {
+                    } else {
                         matrix[parisRow][parisCol] = 'P';
                     }
                 }
