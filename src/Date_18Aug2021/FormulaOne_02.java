@@ -11,12 +11,7 @@ public class FormulaOne_02 {
         char[][] matrix = new char[number][number];
         int playerRow = -1;
         int playerCol = -1;
-        int finishRow = -1;
-        int finishCol = -1;
-        int bonusRow = -1;
-        int bonusCol = -1;
-        int trapRow = -1;
-        int trapCol = -1;
+
 
         boolean isEnded = false;
         for (int row = 0; row < number; row++) {
@@ -25,18 +20,6 @@ public class FormulaOne_02 {
                 if (matrix[row][col] == 'P') {
                     playerRow = row;
                     playerCol = col;
-                }
-                if (matrix[row][col] == 'F') {
-                    finishRow = row;
-                    finishCol = col;
-                }
-                if (matrix[row][col] == 'B') {
-                    bonusRow = row;
-                    bonusCol = col;
-                }
-                if (matrix[row][col] == 'T') {
-                    trapRow = row;
-                    trapCol = col;
                 }
             }
         }
