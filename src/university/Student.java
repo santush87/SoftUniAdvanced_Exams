@@ -19,6 +19,14 @@ public class Student {
         return lastName;
     }
 
+    public void setLastName(String lastName) {
+        if (!getFirstName().equals(lastName)){
+            this.lastName = lastName;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public String getBestSubject() {
         return bestSubject;
     }

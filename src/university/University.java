@@ -8,7 +8,7 @@ public class University {
     private List<Student> students;
 
     public University(int capacity) {
-        this.capacity = capacity;
+        setCapacity(capacity);
         this.students = new ArrayList<>();
     }
 
@@ -18,6 +18,14 @@ public class University {
 
     public List<Student> getStudents() {
         return students;
+    }
+
+    public void setCapacity(int capacity) {
+        if (capacity>0){
+            this.capacity = capacity;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public int getStudentCount() {
@@ -58,9 +66,14 @@ public class University {
     public String getStatistics(){
         StringBuilder builder = new StringBuilder();
         //"==Student: First Name = {firstName}, Last Name = {lastName}, Best Subject = {bestSubject}
-        for (Student student : this.students) {
+        for (int i = 0; i < this.students.size(); i++) {
+            Student student = this.students.get(i);
             builder.append(String.format("==Student: First Name = %s, Last Name = %s, Best Subject = %s",student.getFirstName(), student.getLastName(),student.getBestSubject()));
-            builder.append(System.lineSeparator());
+            if (i < this.students.size()-1){
+                builder.append(System.lineSeparator());
+            }
+        }
+        for (Student student : this.students) {
         }
 
         return builder.toString();
