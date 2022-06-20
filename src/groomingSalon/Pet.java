@@ -19,6 +19,10 @@ public class Pet {
         return age;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private void setAge(int age) {
         if (age >= 0) {
             this.age = age;
