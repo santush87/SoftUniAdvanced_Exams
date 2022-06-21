@@ -10,8 +10,8 @@ public class Pet {
 
     public Pet(String name, int age, String owner) {
         this.name = name;
-        this.age = age;
-        this.owner = owner;
+        setAge(age);
+        setOwner(owner);
     }
 
     public String getName() {
@@ -24,6 +24,22 @@ public class Pet {
 
     public String getOwner() {
         return owner;
+    }
+
+    public void setAge(int age) {
+        if (age >= 0) {
+            this.age = age;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void setOwner(String owner) {
+        if (!this.name.equals(owner)) {
+            this.owner = owner;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override
