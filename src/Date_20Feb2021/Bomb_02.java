@@ -69,8 +69,14 @@ public class Bomb_02 {
                         isEnd = true;
                         break;
                     }
-                } else if (matrix[myPosRow][myPosCol].equals("e") || i == inputs.length - 1) {
+                } else if (matrix[myPosRow][myPosCol].equals("e")) {
                     System.out.printf("END! %d bombs left on the field", bombs);
+                    isEnd = true;
+                    break;
+                }
+
+                if (i == inputs.length - 1) {
+                    System.out.printf("%d bombs left on the field. Sapper position: (%d,%d)", bombs, myPosRow, myPosCol);
                     isEnd = true;
                     break;
                 }
