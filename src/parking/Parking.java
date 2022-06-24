@@ -30,13 +30,17 @@ public class Parking {
     }
 
     public Car getLatestCar(){
-        Car car = new Car();
-        for (Car currCar : this.data){
-            if (currCar.getYear() > car.getYear()){
-                car = currCar;
+        if (this.data.isEmpty()){
+            return null;
+        }else {
+            Car car = new Car();
+            for (Car currCar : this.data){
+                if (currCar.getYear() > car.getYear()){
+                    car = currCar;
+                }
             }
+            return car;
         }
-        return car;
     }
 
     public Car getCar(String manufacturer, String model){

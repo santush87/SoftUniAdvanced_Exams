@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         // Initialize the repository
         Parking parking = new Parking("Underground parking garage", 5);
+        System.out.println(parking.getLatestCar());
 
 // Initialize entity
         Car volvo = new Car("Volvo", "XC70", 2010);
