@@ -37,13 +37,17 @@ public class Clinic {
     }
 
     public Pet getOldestPet() {
-        Pet pet = new Pet();
-        for (Pet currPet : this.data) {
-            if (currPet.getAge() > pet.getAge()) {
-                pet = currPet;
+        if (this.data.size()>0){
+            Pet pet = new Pet();
+            for (Pet currPet : this.data) {
+                if (currPet.getAge() > pet.getAge()) {
+                    pet = currPet;
+                }
             }
+            return pet;
+        } else {
+            return null;
         }
-        return pet;
     }
 
     public int getCount() {
