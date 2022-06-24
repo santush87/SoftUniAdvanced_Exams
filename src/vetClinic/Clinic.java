@@ -37,7 +37,7 @@ public class Clinic {
     }
 
     public Pet getOldestPet() {
-        if (this.data.size()>0){
+        if (this.data.size() > 0) {
             Pet pet = new Pet();
             for (Pet currPet : this.data) {
                 if (currPet.getAge() > pet.getAge()) {
@@ -58,8 +58,11 @@ public class Clinic {
         StringBuilder builder = new StringBuilder();
         builder.append("The clinic has the following patients:\n");
 
-        for (Pet pet : this.data) {
-            builder.append(pet.getName()).append(" ").append(pet.getOwner()).append(System.lineSeparator());
+        for (int i = 0; i < this.data.size(); i++) {
+            builder.append(this.data.get(i).getName()).append(" ").append(this.data.get(i).getOwner());
+            if (i < this.data.size() - 1) {
+                builder.append(System.lineSeparator());
+            }
         }
         return builder.toString();
     }

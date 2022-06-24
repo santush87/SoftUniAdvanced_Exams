@@ -26,6 +26,14 @@ public class Pet {
         return owner;
     }
 
+    public void setName(String name) {
+        if (!getOwner().equals(name)){
+            this.name = name;
+        }else {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public void setAge(int age) {
         if (age >= 0) {
             this.age = age;
